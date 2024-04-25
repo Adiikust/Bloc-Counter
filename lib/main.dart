@@ -1,5 +1,6 @@
 import 'package:bloc_counter/bloc/counter/counter_bloc.dart';
-import 'package:bloc_counter/view/home_view.dart';
+import 'package:bloc_counter/bloc/switch/switch_bloc.dart';
+import 'package:bloc_counter/view/imgpick_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,19 +16,18 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<CounterBloc>(
-          create: (BuildContext context) => CounterBloc(),
-        ),
+        BlocProvider<CounterBloc>(create: (_) => CounterBloc()),
+        BlocProvider<SwitchBloc>(create: (_) => SwitchBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Flutter Bloc',
         theme: ThemeData(
           appBarTheme: const AppBarTheme(backgroundColor: Colors.blue),
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const HomeView(),
+        home: const ImgPickView(),
       ),
     );
   }
