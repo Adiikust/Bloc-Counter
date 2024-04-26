@@ -1,8 +1,11 @@
+import 'package:bloc_counter/bloc/comment/comment_bloc.dart';
 import 'package:bloc_counter/bloc/counter/counter_bloc.dart';
 import 'package:bloc_counter/bloc/image/image_bloc.dart';
 import 'package:bloc_counter/bloc/switch/switch_bloc.dart';
+import 'package:bloc_counter/bloc/todo/todo_bloc.dart';
 import 'package:bloc_counter/utils/image_pick_utils.dart';
-import 'package:bloc_counter/view/imgpick_view.dart';
+import 'package:bloc_counter/view/comment_view.dart';
+import 'package:bloc_counter/view/todolist_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,6 +24,8 @@ class MyApp extends StatelessWidget {
         BlocProvider<CounterBloc>(create: (_) => CounterBloc()),
         BlocProvider<SwitchBloc>(create: (_) => SwitchBloc()),
         BlocProvider<ImageBloc>(create: (_) => ImageBloc(ImagePickUtils())),
+        BlocProvider<TodoListBloc>(create: (_) => TodoListBloc()),
+        BlocProvider<CommentBloc>(create: (_) => CommentBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
@@ -30,7 +35,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const ImgPickView(),
+        home: const CommentView(),
       ),
     );
   }
