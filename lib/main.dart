@@ -4,8 +4,7 @@ import 'package:bloc_counter/bloc/image/image_bloc.dart';
 import 'package:bloc_counter/bloc/switch/switch_bloc.dart';
 import 'package:bloc_counter/bloc/todo/todo_bloc.dart';
 import 'package:bloc_counter/utils/image_pick_utils.dart';
-import 'package:bloc_counter/view/comment_view.dart';
-import 'package:bloc_counter/view/todolist_view.dart';
+import 'package:bloc_counter/view/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -21,7 +20,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<CounterBloc>(create: (_) => CounterBloc()),
         BlocProvider<SwitchBloc>(create: (_) => SwitchBloc()),
         BlocProvider<ImageBloc>(create: (_) => ImageBloc(ImagePickUtils())),
         BlocProvider<TodoListBloc>(create: (_) => TodoListBloc()),
@@ -35,7 +33,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const CommentView(),
+        home: const HomeView(),
       ),
     );
   }
