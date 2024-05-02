@@ -1,8 +1,10 @@
 import 'package:bloc_counter/bloc/counter/counter_bloc.dart';
 import 'package:bloc_counter/bloc/counter/counter_event.dart';
 import 'package:bloc_counter/bloc/counter/counter_state.dart';
+import 'package:bloc_counter/view/login_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -35,6 +37,21 @@ class _HomeViewState extends State<HomeView> {
         appBar: AppBar(
           title:
               const Text('Bloc Counter', style: TextStyle(color: Colors.white)),
+          actions: [
+            IconButton(
+                onPressed: () async {
+                  final SharedPreferences prefs =
+                      await SharedPreferences.getInstance();
+                  prefs.clear();
+                  prefs.remove('token');
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (_) => const LoginView()));
+                },
+                icon: const Icon(
+                  Icons.logout_outlined,
+                  color: Colors.white,
+                )),
+          ],
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
