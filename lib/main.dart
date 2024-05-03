@@ -1,9 +1,10 @@
 import 'package:bloc_counter/bloc/comment/comment_bloc.dart';
+import 'package:bloc_counter/bloc/crud/crud_bloc.dart';
 import 'package:bloc_counter/bloc/image/image_bloc.dart';
 import 'package:bloc_counter/bloc/switch/switch_bloc.dart';
 import 'package:bloc_counter/bloc/todo/todo_bloc.dart';
 import 'package:bloc_counter/utils/image_pick_utils.dart';
-import 'package:bloc_counter/view/todo_view.dart';
+import 'package:bloc_counter/view/todo/todo_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,6 +24,7 @@ class MyApp extends StatelessWidget {
         BlocProvider<ImageBloc>(create: (_) => ImageBloc(ImagePickUtils())),
         BlocProvider<TodoListBloc>(create: (_) => TodoListBloc()),
         BlocProvider<CommentBloc>(create: (_) => CommentBloc()),
+        BlocProvider<CrudBloc>(create: (_) => CrudBloc()),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,

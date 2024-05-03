@@ -4,11 +4,13 @@ part 'todo_model.g.dart';
 @JsonSerializable()
 class TodoModel {
   @JsonKey(name: 'title')
-  String title;
+  String? title;
   @JsonKey(name: 'subTitle')
-  String subTitle;
+  String? subTitle;
+  @JsonKey(name: 'isCheck')
+  bool? isCheck;
 
-  TodoModel({required this.title, required this.subTitle});
+  TodoModel({this.title, this.subTitle, this.isCheck});
 
   factory TodoModel.fromJson(Map<String, dynamic> json) =>
       _$TodoModelFromJson(json);
