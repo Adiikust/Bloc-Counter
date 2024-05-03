@@ -3,8 +3,7 @@ import 'package:bloc_counter/bloc/image/image_bloc.dart';
 import 'package:bloc_counter/bloc/switch/switch_bloc.dart';
 import 'package:bloc_counter/bloc/todo/todo_bloc.dart';
 import 'package:bloc_counter/utils/image_pick_utils.dart';
-import 'package:bloc_counter/view/login_view.dart';
-import 'package:bloc_counter/view/splash_view.dart';
+import 'package:bloc_counter/view/todo_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -33,7 +32,7 @@ class MyApp extends StatelessWidget {
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
           useMaterial3: true,
         ),
-        home: const SplashView(),
+        home: const TodoView(),
       ),
     );
   }
